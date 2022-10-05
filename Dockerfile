@@ -17,3 +17,10 @@ ENV HOME=/${WORKDIR} \
     API_URL=${API_URL}
 
 WORKDIR ${HOME}
+
+COPY package*.json ./
+RUN yarn install
+
+COPY . ./
+
+RUN yarn run build
